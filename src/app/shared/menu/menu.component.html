@@ -1,0 +1,27 @@
+<div id="Top">
+  <nav>
+    <img [routerLink]="['/']" src="../assets/img/hands-logo.png" alt="" />
+  </nav>
+  <div id="HamburgerMenu" (click)="menuHam($event)">
+    <div class="hambLine"></div>
+    <div class="hambLine"></div>
+    <div class="hambLine"></div>
+  </div>
+</div>
+<div id="AdmMenu">
+  <ul>
+    <li>
+      <a [routerLink]="['/produtos']">
+        Produtos
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/cases']">
+        Cases
+      </a>
+    </li>
+  </ul>
+</div>
+<div *ngIf="screen" id="AdmTitle">
+  {{title}}
+</div>

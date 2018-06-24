@@ -1,0 +1,54 @@
+#AdmMenu{
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 150px;
+    height: 100%;
+    background-color: #9a9e4a;
+    background-color: #DDD;
+    z-index: 1;
+    border-right: 2px solid #FFF;
+}
+
+#AdmMenu ul{
+    padding: 0;
+    margin: 0;
+}
+
+#AdmMenu ul li{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+#AdmMenu ul li a{
+    width: 100%;
+    padding: 28px;
+    float: left;
+    text-decoration: none;
+    color: #42505f;
+    border-bottom: 2px solid #FFF;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#AdmMenu ul li a:hover{
+    background-color: #42505f;
+    color: #FFF;
+}
+
+#AdmTitle{
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #9a9e4a;
+    color: #FFF;
+    padding: 20px;
+    padding-left: 190px;
+    z-index: 0;
+    font-size: 25px;
+    letter-spacing: -1px;
+    border-bottom: 2px solid #FFF;
+}

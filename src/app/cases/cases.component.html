@@ -1,0 +1,33 @@
+<div *ngIf="casesList" id="CaseTable">
+    <table>
+      <thead>
+        <tr>
+          <td width="35%">Cases</td>
+          <td width="65%">Urls</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let case of casesList">
+          <td>{{case.nome}}</td>
+          <td>{{case.url}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<form novalidate>
+  <div class="line">
+    <label>Nome do Case</label>
+  </div>
+  <div class="line">
+    <input [(ngModel)]="nome" name="nome" type="text" placeholder="Nome do Case" />
+  </div>
+  <div class="line">
+    <label>Imagem do Case</label>
+  </div>
+  <div class="line">
+    <input [(ngModel)]="url" name="url" type="file" />
+  </div>
+  <div class="line">
+    <button class="btnYell" type="button">Inserir Case</button>
+  </div>
+</form>

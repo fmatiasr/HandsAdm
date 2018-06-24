@@ -1,0 +1,33 @@
+<div *ngIf="produtosList" id="ProductTable">
+  <table border="0">
+    <thead>
+      <tr>
+          <td width="35%">Produto</td>
+          <td width="65%">Urls</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtosList">
+        <td>{{produto.nome}}</td>
+        <td>{{produto.url}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<form novalidate>
+    <div class="line">
+      <label>Nome do Produto</label>
+    </div>
+    <div class="line">
+      <input [(ngModel)]="nome" name="nome" type="text" placeholder="Nome do Produto" />
+    </div>
+    <div class="line">
+      <label>Imagem do Produto</label>
+    </div>
+    <div class="line">
+      <input [(ngModel)]="url" name="url" type="file" />
+    </div>
+    <div class="line">
+      <button class="btnYell" type="button">Inserir Case</button>
+    </div>
+  </form>
