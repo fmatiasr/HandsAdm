@@ -1,10 +1,9 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-import { ProdutosService } from '../shared/servicos/produtos.service';
-import { IProdutos } from '../shared/model/produtos.model';
-import { Observable } from 'rxjs/internal/Observable';
+import { ProdutosService } from '../shared/services/produtos.service';
+import { IProduto } from '../shared/model/produto.model';
 
 /**
  * Classe do componente de Produtos
@@ -18,7 +17,7 @@ export class ProdutosComponent implements OnInit {
 
   //@Output() teste: EventEmitter<string> = new EventEmitter<string>();
   produtoForm: FormGroup;
-  produtosList: IProdutos[];
+  produtosList: IProduto[];
   errorMessage: string = "Erro ao pegar o servico";
 
   /**
@@ -26,7 +25,7 @@ export class ProdutosComponent implements OnInit {
    * @param fb injecao de dependencia do FormBuilder
    * @param _service injecao de dependencia de produtos services
    */
-  constructor(private fb: FormBuilder, private _service:ProdutosService) { }
+  constructor(private fb: FormBuilder, private _service:ProdutosService, private _router: Router) { }
 
   ngOnInit() {
     this._service.getListProduct()
@@ -34,6 +33,17 @@ export class ProdutosComponent implements OnInit {
             produtos => {
               this.produtosList = produtos;
             },
+            error => this.errorMessage = <any>error
+          );
+  }
+
+  openAddPage(){
+    this._router.navigate(['/produtos-add']);
+  }
+
+  deleteProduct(id){
+    this._service.deleteProduct(id)
+          .subscribe(
             error => this.errorMessage = <any>error
           );
   }

@@ -1,9 +1,11 @@
 [
     {
+        "id": "001",
         "nome": "Produto1",
         "url": "url1"
     },
     {
+        "id": "002",
         "nome": "Produto2",
         "url": "url2"
     }

@@ -1,0 +1,22 @@
+<div class="titlePage">
+  Incluir Case
+</div>
+<form (ngSubmit)="onSubit()" #caseForm="ngForm" novalidate>
+  <div class="line">
+    <label>Nome do Case</label>
+  </div>
+  <div class="line">
+    <input [(ngModel)]="model.nome" name="nome" type="text" placeholder="Nome do Case" />
+  </div>
+  <div class="line">
+    <label>Imagem do Case</label>
+  </div>
+  <div class="line">
+    <input [(ngModel)]="model.url" name="url" type="file" />
+  </div>
+  <div class="line">
+    <button class="btnYell" type="button">Inserir Case</button>
+  </div>
+  <div class="separatorBtn"></div>
+  <button type="submit" class="btnYell marginTop20" (click)="voltarProductPage()">Voltar</button>
+</form>

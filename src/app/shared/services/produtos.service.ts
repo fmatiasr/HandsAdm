@@ -1,57 +1,68 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
-import { IProdutos } from '../model/produtos.model'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
+import { IProduto } from '../model/produto.model'
+
+/**
+ * Classe dos servicos de Produtos
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
-
-  objProdutos: IProdutos;
+  /**
+   * Url da API de produtos
+   */
   produtosUrl = 'assets/produtos.json';
-
+  /**
+   * Construtor da classe de servicos de produtos
+   * @param _http 
+   */
   constructor(private _http: HttpClient) { }
   /**
    * Pega o produto.
+   * @param id Id do produto
    */
-  getProduct(): Observable<IProdutos> {
-    return this._http.get<IProdutos>(this.produtosUrl)
+  getProduct(id): Observable<IProduto> {
+    return this._http.get<IProduto>(this.produtosUrl + `/${id}`)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Pega lista de produtos.
    */
-  getListProduct(): Observable<IProdutos[]> {
-    return this._http.get<IProdutos[]>(this.produtosUrl)
+  getListProduct(): Observable<IProduto[]> {
+    return this._http.get<IProduto[]>(this.produtosUrl)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Adiciona o produto.
+   * @param produto Objeto do produto que e do tipo IProduto
    */
-  addProduct(): Observable<IProdutos> {
-    return this._http.post<IProdutos>(this.produtosUrl, this.objProdutos)
+  addProduct(produto: IProduto): Observable<IProduto> {
+    return this._http.post<IProduto>(this.produtosUrl, produto)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Atualiza o produto
+   * @param produto Objeto do produto que e do tipo IProduto
    */
-  updateProduct(): Observable<IProdutos> {
-    return this._http.put<IProdutos>(this.produtosUrl, this.objProdutos)
+  updateProduct(produto: IProduto): Observable<IProduto> {
+    return this._http.put<IProduto>(this.produtosUrl, produto)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Deleta o produto (delecao logica)
+   * @param id Id do produto
    */
-  deleteProduct() {
-    return this._http.put<IProdutos>(this.produtosUrl, this.objProdutos)
+  deleteProduct(id) {
+    return this._http.put<IProduto>(this.produtosUrl, id)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }

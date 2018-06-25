@@ -24,17 +24,19 @@
 
 #AdmMenu ul li a{
     width: 100%;
-    padding: 28px;
+    padding: 27px;
     float: left;
     text-decoration: none;
-    color: #42505f;
+    color: #9a9e4a;
     border-bottom: 2px solid #FFF;
     box-sizing: border-box;
     outline: none;
+    background-color: #eeefdd;
+    font-size: 14px;
 }
 
 #AdmMenu ul li a:hover{
-    background-color: #42505f;
+    background-color: #9a9e4a;
     color: #FFF;
 }
 

@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { CasesService } from '../shared/servicos/cases.service';
-import { ICases } from '../shared/model/cases.model';
+import { CasesService } from '../shared/services/cases.service';
+import { ICase } from '../shared/model/case.model';
 
 @Component({
   selector: 'app-cases',
@@ -12,10 +13,10 @@ import { ICases } from '../shared/model/cases.model';
 export class CasesComponent implements OnInit {
 
   caseForm: FormGroup;
-  casesList: ICases[];
+  casesList: ICase[];
   errorMessage: string = "Erro ao pegar o servico";
 
-  constructor(private fb: FormBuilder, private _service: CasesService) { }
+  constructor(private fb: FormBuilder, private _service: CasesService, private _router: Router) { }
 
   ngOnInit() {
     this._service.getListCases()
@@ -23,6 +24,17 @@ export class CasesComponent implements OnInit {
             cases => {
               this.casesList = cases;
             },
+            error => this.errorMessage = <any>error
+          );
+  }
+
+  openAddPage(){
+    this._router.navigate(['/cases-add']);
+  }
+
+  deleteProduct(id){
+    this._service.deleteCase(id)
+          .subscribe(
             error => this.errorMessage = <any>error
           );
   }

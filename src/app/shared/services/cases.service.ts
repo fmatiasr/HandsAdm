@@ -1,57 +1,68 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
-import { ICases } from '../model/cases.model'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
+import { ICase } from '../model/case.model'
+
+/**
+ * Classe dos servicos do Cases
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class CasesService {
-
-  objCases: ICases;
+  /**
+   * Url da API de produtos
+   */
   caseUrl = 'assets/cases.json';
-
+  /**
+   * Construtor da classe de servicos de cases
+   * @param _http 
+   */
   constructor(private _http: HttpClient) { }
   /**
    * Pega o Case
+   * @param id Id do case
    */
-  getCase(): Observable<ICases> {
-    return this._http.get<ICases>(this.caseUrl)
+  getCase(id): Observable<ICase> {
+    return this._http.get<ICase>(this.caseUrl + `/${id}`)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Pega lista de Cases
    */
-  getListCases(): Observable<ICases[]> {
-    return this._http.get<ICases[]>(this.caseUrl)
+  getListCases(): Observable<ICase[]> {
+    return this._http.get<ICase[]>(this.caseUrl)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Adiciona o case
+   * @param caseSingle Objeto do case que e do tipo ICase
    */
-  addCase(): Observable<ICases> {
-    return this._http.post<ICases>(this.caseUrl, this.objCases)
+  addCase(caseSingle: ICase): Observable<ICase> {
+    return this._http.post<ICase>(this.caseUrl, caseSingle)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Atualiza o case
+   * @param caseSingle Objeto do case que e do tipo ICase
    */
-  updateCase(): Observable<ICases> {
-    return this._http.put<ICases>(this.caseUrl, this.objCases)
+  updateCase(caseSingle: ICase): Observable<ICase> {
+    return this._http.put<ICase>(this.caseUrl, caseSingle)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Deleta o case (delecao logica)
+   * @param id Id do case
    */
-  deleteCase(): Observable<ICases> {
-    return this._http.put<ICases>(this.caseUrl, this.objCases)
+  deleteCase(id): Observable<ICase> {
+    return this._http.put<ICase>(this.caseUrl, id)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }

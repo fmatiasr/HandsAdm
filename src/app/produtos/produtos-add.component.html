@@ -1,0 +1,22 @@
+<div class="titlePage">
+  Incluir Produto
+</div>
+<form #form="ngForm" (submit)="onSubit(form)" novalidate>
+  <div class="line">
+    <label>Nome do Produto</label>
+  </div>
+  <div class="line">
+    <input [(ngModel)]="model.nome" name="nome" type="text" placeholder="Nome do Produto" />
+  </div>
+  <div class="line">
+    <label>Imagem do Produto</label>
+  </div>
+  <div class="line">
+    <input [(ngModel)]="model.url" name="url" type="file" />
+  </div>
+  <div class="line">
+    <button class="btnYell" type="submit">Inserir Case</button>
+  </div>
+</form>
+<div class="separatorBtn"></div>
+<button type="button" class="btnYell marginTop20" (click)="voltarProductPage()">Voltar</button>

@@ -1,9 +1,11 @@
 [
     {
+        "id": "001",
         "nome": "Case1",
         "url": "url1"
     },
     {
+        "id": "002",
         "nome": "Case2",
         "url": "url2"
     }

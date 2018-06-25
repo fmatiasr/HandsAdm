@@ -65,6 +65,12 @@ p{
     margin: 30px 0;
 }
 
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
 #Top{
     position: fixed;
     width: 100%;
@@ -86,6 +92,22 @@ p{
     outline: none;
 }
 
+.floatRight{
+    float: right!important;
+}
+
+.marginTop20{
+    margin-top: 20px!important;
+}
+
+.separatorBtn{
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #c7d301;
+    float: left;
+    margin: 30px 0 10px 0;
+}
+
 .line{
     width: 100%;
     min-height: 20px;
@@ -99,22 +121,31 @@ input{
     padding: 10px;
     border: 1px solid #c7d301;
     margin-bottom: 10px;
-    color: #42505f;
+    color: #9a9e4a;
     font-family: 'Raleway';
     outline: none;
+    background-color: #FFF;
+}
+
+label{
+    color:#9a9e4a;
+    font-size: 16px;
 }
 
 .btnYell{
     min-width: 372px;
     height: auto;
     border: 1px solid #c7d301;
-    color: #c7d301;
+    color: #9a9e4a;
     padding: 20px;
     text-align: center;
     background-color: #FFF;
     font-weight: bold;
     box-sizing: border-box;
     outline: none;
+    cursor: pointer;
+    font-family: 'Raleway';
+    font-size: 14px;
 }
 
 .btnYell:hover{
@@ -134,16 +165,30 @@ table{
 }
 
 table tbody tr td{
-    border: 1px solid #CCC;
+    border: 1px solid #c7d301;
     padding: 20px;
     background-color: #eeefdd;
+    color: #8b9032;
 }
 
 table thead tr td{
     background-color: #FFF;
     padding: 20px;
-    color: #9a9e4a;
+    color: #8b9032;
     font-size: 16px;
     font-weight: bold;
-    border: 1px solid #CCC;
+    border: 1px solid #c7d301;
+}
+
+.titlePage{
+    width: 100%;
+    min-height: 20px;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #eeefdd;
+    color: #9a9e4a;
+    margin-bottom: 30px;
+    border: 1px solid #c7d301;
+    font-size: 20px;
 }
