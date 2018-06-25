@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 
 import { ProdutosService } from '../shared/services/produtos.service';
 import { IProduto } from '../shared/model/produto.model';
-
 /**
  * Classe do componente de Produtos
  */
@@ -14,19 +13,24 @@ import { IProduto } from '../shared/model/produto.model';
   styleUrls: ['./produtos.component.css']
 })
 export class ProdutosComponent implements OnInit {
-
   //@Output() teste: EventEmitter<string> = new EventEmitter<string>();
-  produtoForm: FormGroup;
+  /**
+   * Propriedade de lista de IProduto
+   */
   produtosList: IProduto[];
-  errorMessage: string = "Erro ao pegar o servico";
-
+  /**
+   * Propriedade que seta a mensagem de erro
+   */
+  errorMessage: string = "Erro ao chamar o servico";
   /**
    * Construtor da classe produtos
    * @param fb injecao de dependencia do FormBuilder
    * @param _service injecao de dependencia de produtos services
    */
   constructor(private fb: FormBuilder, private _service:ProdutosService, private _router: Router) { }
-
+  /**
+   * ngInit que ocorre antes do carregamento do component
+   */
   ngOnInit() {
     this._service.getListProduct()
           .subscribe(
@@ -36,16 +40,20 @@ export class ProdutosComponent implements OnInit {
             error => this.errorMessage = <any>error
           );
   }
-
+  /**
+   * Abre a pagina de incluir um produto
+   */
   openAddPage(){
     this._router.navigate(['/produtos-add']);
   }
-
+  /**
+   * Deleta um produto por id
+   * @param id Id do produto a ser deletado
+   */
   deleteProduct(id){
     this._service.deleteProduct(id)
           .subscribe(
             error => this.errorMessage = <any>error
           );
   }
-
 }

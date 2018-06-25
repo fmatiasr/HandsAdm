@@ -4,6 +4,9 @@ import { ProdutosAddComponent } from "./produtos/produtos-add.component";
 import { CasesComponent } from "./cases/cases.component";
 import { CasesAddComponent } from "./cases/cases-add.component";
 
+/**
+ * Propriedade que comporta todas as rotas da aplicacao
+ */
 export const appRoutes: Routes = [
     { path: 'produtos', component: ProdutosComponent },
     { path: 'produtos-add', component: ProdutosAddComponent },

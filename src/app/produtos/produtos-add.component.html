@@ -12,10 +12,10 @@
     <label>Imagem do Produto</label>
   </div>
   <div class="line">
-    <input [(ngModel)]="model.url" name="url" type="file" />
+    <input name="url" type="file" accept="image/*" multiple (change)="changeListener($event)" />
   </div>
   <div class="line">
-    <button class="btnYell" type="submit">Inserir Case</button>
+    <button class="btnYell" type="submit">Inserir Produto</button>
   </div>
 </form>
 <div class="separatorBtn"></div>
