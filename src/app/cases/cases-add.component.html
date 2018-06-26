@@ -1,3 +1,4 @@
+<app-title [title]="title"></app-title>
 <div class="titlePage">
   Incluir Case
 </div>
@@ -15,8 +16,9 @@
     <input name="url" type="file" accept="image/*" multiple (change)="changeListener($event)" />
   </div>
   <div class="line">
-    <button class="btnYell" type="submit">Inserir Case</button>
+    <div class="separatorBtn"></div>
+    <button type="button" class="btnYell marginTop20 floatRight" (click)="voltarCasePage()">Voltar</button>
+    <button type="submit" class="btnYell marginTop20 floatRight">Inserir Case</button>
   </div>
 </form>
-<div class="separatorBtn"></div>
-<button type="button" class="btnYell marginTop20" (click)="voltarCasePage()">Voltar</button>
+Model: {{model | json}}

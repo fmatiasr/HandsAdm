@@ -1,3 +1,4 @@
+<app-title [title]="title"></app-title>
 <div class="titlePage">
   Incluir Produto
 </div>
@@ -15,8 +16,8 @@
     <input name="url" type="file" accept="image/*" multiple (change)="changeListener($event)" />
   </div>
   <div class="line">
-    <button class="btnYell" type="submit">Inserir Produto</button>
+    <div class="separatorBtn"></div>
+    <button type="button" class="btnYell marginTop20 floatRight" (click)="voltarProductPage()">Voltar</button>
+    <button type="submit" class="btnYell marginTop20 floatRight">Inserir Produto</button>
   </div>
 </form>
-<div class="separatorBtn"></div>
-<button type="button" class="btnYell marginTop20" (click)="voltarProductPage()">Voltar</button>

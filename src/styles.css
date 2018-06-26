@@ -1,36 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* latin */
 @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Raleway Light'), local('Raleway-Light'), url(./assets/fonts/1Ptrg8zYS_SKggPNwIYqWqhPAMif.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* latin */
-  @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Raleway Light'), local('Raleway-Light'), url(./assets/fonts/1Ptrg8zYS_SKggPNwIYqWqZPAA.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  /* latin-ext */
-  @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Raleway Bold'), local('Raleway-Bold'), url(./assets/fonts/1Ptrg8zYS_SKggPNwJYtWqhPAMif.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  /* latin */
-  @font-face {
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Raleway Bold'), local('Raleway-Bold'), url(./assets/fonts/1Ptrg8zYS_SKggPNwJYtWqZPAA.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(./assets/fonts/1Ptrg8zYS_SKggPNwIYqWqZPAA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Raleway Bold'), local('Raleway-Bold'), url(./assets/fonts/1Ptrg8zYS_SKggPNwJYtWqZPAA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 html, body{
     position: relative;
@@ -40,10 +25,27 @@ html, body{
     margin: 0;
     font-family: 'Raleway', Arial;
     font-size: 16px;
-    color:#42505f;
+    color:#6e721e;
     float: left;
-    background-color: #EEE;
-    font-size: 12px;
+    background-color: #fefff4;
+    font-size: 14px;
+    /* background-image: url(./assets/img/back1.jpg); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#admCont{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(154, 158, 74, 0.01);
+  overflow-y: auto;
+}
+
+.width50{
+  width: 50%;
+  float: left;
 }
 
 h1{
@@ -76,7 +78,7 @@ a{
     width: 100%;
     height: 70px;
     float: left;
-    background-color: #42505f;
+    background-color: #6e721e;
     padding: 20px;
     box-sizing: border-box;
     border-bottom: 2px solid #FFF;
@@ -86,7 +88,7 @@ a{
 #Top img{
     width: 150px;
     height: auto;
-    float: left; 
+    float: left;
     padding-right: 30px;
     cursor: pointer;
     outline: none;
@@ -133,7 +135,7 @@ label{
 }
 
 .btnYell{
-    min-width: 372px;
+    min-width: 172px;
     height: auto;
     border: 1px solid #c7d301;
     color: #9a9e4a;
@@ -146,6 +148,7 @@ label{
     cursor: pointer;
     font-family: 'Raleway';
     font-size: 14px;
+    margin-left: 10px;
 }
 
 .btnYell:hover{
@@ -162,6 +165,7 @@ table{
     border: 1px solid #CCC;
     border: none;
     margin-bottom: 20px;
+    border-collapse: collapse;
 }
 
 table tbody tr td{
@@ -169,6 +173,14 @@ table tbody tr td{
     padding: 20px;
     background-color: #eeefdd;
     color: #8b9032;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+table tbody tr td img{
+  width: 100px;
+  border: 1px solid #c7d301;
 }
 
 table thead tr td{
@@ -181,14 +193,15 @@ table thead tr td{
 }
 
 .titlePage{
-    width: 100%;
-    min-height: 20px;
-    float: left;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #eeefdd;
-    color: #9a9e4a;
-    margin-bottom: 30px;
-    border: 1px solid #c7d301;
-    font-size: 20px;
+  width: 100%;
+  min-height: 20px;
+  float: left;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #90953b;
+  margin-bottom: 30px;
+  border: 1px solid #c7d301;
+  font-size: 20px;
+  font-weight: bold;
 }

@@ -4,8 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
-import { IProduto } from '../model/produto.model'
-
+import { IProduto } from '../model/produto.model';
 /**
  * Classe dos servicos de Produtos
  */
@@ -19,7 +18,7 @@ export class ProdutosService {
   produtosUrl = 'assets/produtos.json';
   /**
    * Construtor da classe de servicos de produtos
-   * @param _http 
+   * @param _http
    */
   constructor(private _http: HttpClient) { }
   /**
@@ -68,9 +67,9 @@ export class ProdutosService {
   }
   /**
    * Tratamento de erro
-   * @param err 
+   * @param err
    */
-  private handleError(err: HttpErrorResponse){
+  private handleError(err: HttpErrorResponse) {
     console.log();
     return Observable.throw(err.message);
   }

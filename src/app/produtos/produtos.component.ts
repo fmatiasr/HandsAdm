@@ -13,7 +13,6 @@ import { IProduto } from '../shared/model/produto.model';
   styleUrls: ['./produtos.component.css']
 })
 export class ProdutosComponent implements OnInit {
-  //@Output() teste: EventEmitter<string> = new EventEmitter<string>();
   /**
    * Propriedade de lista de IProduto
    */
@@ -21,13 +20,17 @@ export class ProdutosComponent implements OnInit {
   /**
    * Propriedade que seta a mensagem de erro
    */
-  errorMessage: string = "Erro ao chamar o servico";
+  errorMessage = 'Erro ao chamar o servico';
+  /**
+   * Titulo da pagina
+   */
+  title = 'Produtos';
   /**
    * Construtor da classe produtos
    * @param fb injecao de dependencia do FormBuilder
    * @param _service injecao de dependencia de produtos services
    */
-  constructor(private fb: FormBuilder, private _service:ProdutosService, private _router: Router) { }
+  constructor(private fb: FormBuilder, private _service: ProdutosService, private _router: Router) { }
   /**
    * ngInit que ocorre antes do carregamento do component
    */
@@ -43,14 +46,14 @@ export class ProdutosComponent implements OnInit {
   /**
    * Abre a pagina de incluir um produto
    */
-  openAddPage(){
+  openAddPage() {
     this._router.navigate(['/produtos-add']);
   }
   /**
    * Deleta um produto por id
    * @param id Id do produto a ser deletado
    */
-  deleteProduct(id){
+  deleteProduct(id) {
     this._service.deleteProduct(id)
           .subscribe(
             error => this.errorMessage = <any>error

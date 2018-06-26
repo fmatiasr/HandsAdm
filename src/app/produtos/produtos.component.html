@@ -1,3 +1,4 @@
+<app-title [title]="title"></app-title>
 <div class="titlePage">
   Lista de Produtos
 </div>
@@ -5,16 +6,16 @@
   <table border="0">
     <thead>
       <tr>
-          <td width="35%">Produto</td>
-          <td width="45%">Urls</td>
+          <td align="center" width="15%">Imagem</td>
+          <td width="65%">Produto</td>
           <td width="20%"></td>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let produto of produtosList">
+        <td align="center"><img [src]="produto.url" alt="" /></td>
         <td>{{produto.nome}}</td>
-        <td>{{produto.url}}</td>
-        <td><a title="Alterar o Produto" [routerLink]="['/produtos-add', produto.id]">Alterar</a> | <a  title="Deletar o Produto" (click)="deleteProduct(produto.id)">Excluir</a></td>
+        <td align="center"><a title="Alterar o Produto" [routerLink]="['/produtos-add', produto.id]">Alterar</a> | <a  title="Deletar o Produto" (click)="deleteProduct(produto.id)">Excluir</a></td>
       </tr>
     </tbody>
   </table>

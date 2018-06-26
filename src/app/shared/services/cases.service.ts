@@ -4,8 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
-import { ICase } from '../model/case.model'
-
+import { ICase } from '../model/case.model';
 /**
  * Classe dos servicos do Cases
  */
@@ -19,7 +18,7 @@ export class CasesService {
   caseUrl = 'assets/cases.json';
   /**
    * Construtor da classe de servicos de cases
-   * @param _http 
+   * @param _http
    */
   constructor(private _http: HttpClient) { }
   /**
@@ -68,9 +67,9 @@ export class CasesService {
   }
   /**
    * Tratamento de erro
-   * @param err 
+   * @param err
    */
-  private handleError(err: HttpErrorResponse){
+  private handleError(err: HttpErrorResponse) {
     console.log();
     return Observable.throw(err.message);
   }

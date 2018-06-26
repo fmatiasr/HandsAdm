@@ -18,6 +18,10 @@ export class ProdutosAddComponent implements OnInit {
    */
   model = new Produto();
   /**
+   * Titulo da pagina
+   */
+  title = 'Produtos';
+  /**
    * Construtor da classe do component produtos add
    * @param _servico Servicos para produto
    * @param _router Router do angular
@@ -28,26 +32,26 @@ export class ProdutosAddComponent implements OnInit {
    * ngInit que ocorre antes do carregamento do component
    */
   ngOnInit() {
-    let id = +this._activeRouter.snapshot.paramMap.get('id');
+    // let id = +this._activeRouter.snapshot.paramMap.get('id');
   }
   /**
    * Voltar para pagina de lista de produtos
    */
-  voltarProductPage(){
+  voltarProductPage() {
     this._router.navigate(['/produtos']);
   }
   /**
    * Da submit no formulario
-   * @param form 
+   * @param form
    */
-  onSubit(form: NgForm){
+  onSubit(form: NgForm) {
     this._servico.updateProduct(this.model);
   }
   /**
    * Iniciando tratamento de imagem para base64
    * @param $event pássando a imagem
    */
-  changeListener($event) : void {
+  changeListener($event): void {
     this.readThis($event.target);
   }
   /**
@@ -55,11 +59,11 @@ export class ProdutosAddComponent implements OnInit {
    * @param inputValue valores da imagem
    */
   readThis(inputValue: any): void {
-    var file:File = inputValue.files[0];
-    var myReader:FileReader = new FileReader();  
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
     myReader.onloadend = (e) => {
       this.model.url = myReader.result;
-    }
+    };
     myReader.readAsDataURL(file);
   }
 }

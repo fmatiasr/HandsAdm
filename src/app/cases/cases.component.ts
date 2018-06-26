@@ -17,9 +17,13 @@ export class CasesComponent implements OnInit {
    */
   casesList: ICase[];
   /**
+   * Titulo da pagina
+   */
+  title = 'Cases';
+  /**
    * Propriedade que seta a mensagem de erro
    */
-  errorMessage: string = "Erro ao chamar o servico";
+  errorMessage = 'Erro ao chamar o servico';
   /**
    * Construtor da classe do component cases
    * @param _service Servicos para case
@@ -41,14 +45,14 @@ export class CasesComponent implements OnInit {
   /**
    * Abre a pagina de incluir um case
    */
-  openAddPage(){
+  openAddPage() {
     this._router.navigate(['/cases-add']);
   }
   /**
    * Deleta um case por id
    * @param id Id do case a ser deletado
    */
-  deleteProduct(id){
+  deleteProduct(id) {
     this._service.deleteCase(id)
           .subscribe(
             error => this.errorMessage = <any>error

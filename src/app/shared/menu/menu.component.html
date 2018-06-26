@@ -11,6 +11,11 @@
 <div id="AdmMenu">
   <ul>
     <li>
+      <a [routerLink]="['/home']">
+        Home
+      </a>
+    </li>
+    <li>
       <a [routerLink]="['/produtos']">
         Produtos
       </a>
@@ -21,7 +26,4 @@
       </a>
     </li>
   </ul>
-</div>
-<div *ngIf="screen" id="AdmTitle">
-  {{title}}
 </div>

@@ -18,6 +18,10 @@ export class CasesAddComponent implements OnInit {
    */
   model = new Case();
   /**
+   * Titulo da pagina
+   */
+  title = 'Cases';
+  /**
    * Construtor da classe do component cases add
    * @param _servico Servicos para case
    * @param _router Router do angular
@@ -28,20 +32,20 @@ export class CasesAddComponent implements OnInit {
    * ngInit que ocorre antes do carregamento do component
    */
   ngOnInit() {
-    let id = +this._activeRouter.snapshot.paramMap.get('id');
-    //alert(id);
+    // let id = +this._activeRouter.snapshot.paramMap.get('id');
+    // alert(id);
   }
   /**
    * Voltar para pagina de lista de cases
    */
-  voltarCasePage(){
+  voltarCasePage() {
     this._router.navigate(['/cases']);
   }
   /**
    * Da submit no formulario
-   * @param form 
+   * @param form
    */
-  onSubit(form: NgForm){
+  onSubit(form: NgForm) {
     this._servico.updateCase(this.model);
     console.log(this.model);
   }
@@ -49,7 +53,7 @@ export class CasesAddComponent implements OnInit {
    * Iniciando tratamento de imagem para base64
    * @param $event pássando a imagem
    */
-  changeListener($event) : void {
+  changeListener($event): void {
     this.readThis($event.target);
   }
   /**
@@ -57,11 +61,11 @@ export class CasesAddComponent implements OnInit {
    * @param inputValue valores da imagem
    */
   readThis(inputValue: any): void {
-    var file:File = inputValue.files[0];
-    var myReader:FileReader = new FileReader();  
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
     myReader.onloadend = (e) => {
       this.model.url = myReader.result;
-    }
+    };
     myReader.readAsDataURL(file);
   }
 }
