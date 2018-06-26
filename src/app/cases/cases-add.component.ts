@@ -46,8 +46,8 @@ export class CasesAddComponent implements OnInit {
    * @param form
    */
   onSubit(form: NgForm) {
-    this._servico.updateCase(this.model);
-    console.log(this.model);
+    this._servico.addCase(this.model);
+    this.voltarCasePage();
   }
   /**
    * Iniciando tratamento de imagem para base64
@@ -64,7 +64,7 @@ export class CasesAddComponent implements OnInit {
     const file: File = inputValue.files[0];
     const myReader: FileReader = new FileReader();
     myReader.onloadend = (e) => {
-      this.model.url = myReader.result;
+      this.model.Imagem = myReader.result;
     };
     myReader.readAsDataURL(file);
   }

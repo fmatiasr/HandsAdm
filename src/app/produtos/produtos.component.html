@@ -2,7 +2,7 @@
 <div class="titlePage">
   Lista de Produtos
 </div>
-<div *ngIf="produtosList" id="ProductTable">
+<div *ngIf="produtosList?.length > 0" id="ProductTable">
   <table border="0">
     <thead>
       <tr>
@@ -13,11 +13,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let produto of produtosList">
-        <td align="center"><img [src]="produto.url" alt="" /></td>
-        <td>{{produto.nome}}</td>
-        <td align="center"><a title="Alterar o Produto" [routerLink]="['/produtos-add', produto.id]">Alterar</a> | <a  title="Deletar o Produto" (click)="deleteProduct(produto.id)">Excluir</a></td>
+        <td align="center"><img [src]="produto.Imagem" alt="" /></td>
+        <td>{{produto.Nome}}</td>
+        <td align="center"><a title="Alterar o Produto" [routerLink]="['/produtos-add', produto.Id]">Alterar</a> | <a  title="Deletar o Produto" (click)="deleteProduct(produto.Id)">Excluir</a></td>
       </tr>
     </tbody>
   </table>
-  <button type="button" class="btnYell floatRight" (click)="openAddPage()">Incluir Produto</button>
 </div>
+<div *ngIf="produtosList?.length == 0" class="errorList">
+  <span>Não existe nenhum registro de produtos cadastrados</span>
+</div>
+<button type="button" class="btnYell floatRight marginTop20" (click)="openAddPage()">Incluir Produto</button>

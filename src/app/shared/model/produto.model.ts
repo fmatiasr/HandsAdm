@@ -2,8 +2,8 @@
  * Interface do objeto IProduto
  */
 export interface IProduto {
-    id: number;
-    nome: string;
-    url: string;
-    ativo: boolean;
+    Id: number;
+    Nome: string;
+    Imagem: string;
+    Ativo: boolean;
 }

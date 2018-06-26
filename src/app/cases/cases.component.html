@@ -2,7 +2,7 @@
 <div class="titlePage">
   Lista de Cases
 </div>
-<div *ngIf="casesList" id="CaseTable">
+<div *ngIf="casesList?.length > 0" id="CaseTable">
     <table>
       <thead>
         <tr>
@@ -13,11 +13,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let case of casesList">
-          <td align="center"><img [src]="case.url" alt="" /></td>
-          <td>{{case.nome}}</td>
-          <td align="center"><a title="Alterar o Case" [routerLink]="['/cases-add', case.id]">Alterar</a> | <a title="Deletar o Case" (click)="deleteProduct(case.id)">Excluir</a></td>
+          <td align="center"><img [src]="case.Imagem" alt="" /></td>
+          <td>{{case.Nome}}</td>
+          <td align="center"><a title="Alterar o Case" [routerLink]="['/cases-add', case.Id]">Alterar</a> | <a title="Deletar o Case" (click)="deleteProduct(case.Id)">Excluir</a></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <button type="button" class="btnYell floatRight" (click)="openAddPage()">Incluir Case</button>
+  <div *ngIf="casesList?.length == 0" class="errorList">
+      <span>Não existe nenhum registro de <strong>CASES</strong> cadastrados</span>
+    </div>
+  <button type="button" class="btnYell floatRight marginTop20" (click)="openAddPage()">Incluir Case</button>

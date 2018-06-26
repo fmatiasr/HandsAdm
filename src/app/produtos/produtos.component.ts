@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ProdutosService } from '../shared/services/produtos.service';
-import { IProduto } from '../shared/model/produto.model';
+import { Produto } from '../shared/model/produtoModel.model';
 /**
  * Classe do componente de Produtos
  */
@@ -16,7 +16,7 @@ export class ProdutosComponent implements OnInit {
   /**
    * Propriedade de lista de IProduto
    */
-  produtosList: IProduto[];
+  produtosList: Produto[];
   /**
    * Propriedade que seta a mensagem de erro
    */

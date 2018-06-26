@@ -5,7 +5,7 @@
     width: 150px;
     height: 100%;
     background-color: #9a9e4a;
-    background-color: #eeefdd;
+    background-color: #f6f9bd;
     z-index: 1;
     border-right: 2px solid #FFF;
 }
@@ -31,7 +31,7 @@
     border-bottom: 2px solid #FFF;
     box-sizing: border-box;
     outline: none;
-    background-color: #eeefdd;
+    background-color: #f6f9bd;
     font-size: 14px;
 }
 

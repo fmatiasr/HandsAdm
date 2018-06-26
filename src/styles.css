@@ -35,6 +35,19 @@ html, body{
     background-attachment: fixed;
 }
 
+.errorList{
+    width: 100%;
+    min-height: 20px;
+    float: left;
+    color: #FFF;
+    background-color: #B11;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #ff9696;
+    border-radius: 10px;
+}
+
 #admCont{
   position: fixed;
   width: 100%;
@@ -171,7 +184,7 @@ table{
 table tbody tr td{
     border: 1px solid #c7d301;
     padding: 20px;
-    background-color: #eeefdd;
+    background-color: #f6f9bd;
     color: #8b9032;
     overflow: hidden;
     white-space: nowrap;

@@ -41,11 +41,11 @@ export class ProdutosAddComponent implements OnInit {
     this._router.navigate(['/produtos']);
   }
   /**
-   * Da submit no formulario
+   * Da submit no formulario para adiconar um produto
    * @param form
    */
   onSubit(form: NgForm) {
-    this._servico.updateProduct(this.model);
+    this._servico.addProduct(this.model);
   }
   /**
    * Iniciando tratamento de imagem para base64
@@ -62,7 +62,7 @@ export class ProdutosAddComponent implements OnInit {
     const file: File = inputValue.files[0];
     const myReader: FileReader = new FileReader();
     myReader.onloadend = (e) => {
-      this.model.url = myReader.result;
+      this.model.Imagem = myReader.result;
     };
     myReader.readAsDataURL(file);
   }

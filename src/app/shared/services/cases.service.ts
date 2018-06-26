@@ -15,7 +15,7 @@ export class CasesService {
   /**
    * Url da API de produtos
    */
-  caseUrl = 'assets/cases.json';
+  caseUrl = 'http://localhost:53805/case/';
   /**
    * Construtor da classe de servicos de cases
    * @param _http
@@ -26,7 +26,7 @@ export class CasesService {
    * @param id Id do case
    */
   getCase(id): Observable<ICase> {
-    return this._http.get<ICase>(this.caseUrl + `/${id}`)
+    return this._http.get<ICase>(this.caseUrl + 'obter/' + `/${id}`)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
@@ -34,25 +34,25 @@ export class CasesService {
    * Pega lista de Cases
    */
   getListCases(): Observable<ICase[]> {
-    return this._http.get<ICase[]>(this.caseUrl)
-    .do(data => console.log('All: ' + JSON.stringify(data)))
+    return this._http.get<ICase[]>(this.caseUrl + 'listar/')
     .catch(this.handleError);
   }
   /**
    * Adiciona o case
    * @param caseSingle Objeto do case que e do tipo ICase
    */
-  addCase(caseSingle: ICase): Observable<ICase> {
-    return this._http.post<ICase>(this.caseUrl, caseSingle)
-    .do(data => console.log('All: ' + JSON.stringify(data)))
-    .catch(this.handleError);
+  addCase(caseOne: ICase) {
+    return this._http.post<ICase>(this.caseUrl + 'adicionar/', caseOne)
+    .subscribe((data) => {
+      console.log(data);
+    });
   }
   /**
    * Atualiza o case
-   * @param caseSingle Objeto do case que e do tipo ICase
+   * @param case Objeto do case que e do tipo ICase
    */
-  updateCase(caseSingle: ICase): Observable<ICase> {
-    return this._http.put<ICase>(this.caseUrl, caseSingle)
+  updateCase(caseOne: ICase): Observable<ICase> {
+    return this._http.put<ICase>(this.caseUrl + 'alterar/', caseOne)
     .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
@@ -60,9 +60,11 @@ export class CasesService {
    * Deleta o case (delecao logica)
    * @param id Id do case
    */
-  deleteCase(id): Observable<ICase> {
-    return this._http.put<ICase>(this.caseUrl, id)
-    .do(data => console.log('All: ' + JSON.stringify(data)))
+  deleteCase(id: number): Observable<ICase> {
+    return this._http.delete<ICase>(this.caseUrl + 'deletar/' + id)
+    .do(data => {
+      console.log('All: ' + JSON.stringify(data))
+    })
     .catch(this.handleError);
   }
   /**
