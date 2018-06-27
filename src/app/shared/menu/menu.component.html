@@ -1,29 +1,24 @@
 <div id="Top">
-  <nav>
-    <img [routerLink]="['/']" src="../assets/img/hands-logo.png" alt="" />
-  </nav>
-  <div id="HamburgerMenu" (click)="menuHam($event)">
-    <div class="hambLine"></div>
-    <div class="hambLine"></div>
-    <div class="hambLine"></div>
-  </div>
+  <img src="../assets/img/hands-logo.png" alt="" />
 </div>
 <div id="AdmMenu">
-  <ul>
-    <li>
-      <a [routerLink]="['/home']">
-        Home
-      </a>
-    </li>
-    <li>
-      <a [routerLink]="['/produtos']">
-        Produtos
-      </a>
-    </li>
-    <li>
-      <a [routerLink]="['/cases']">
-        Cases
-      </a>
-    </li>
-  </ul>
+  <nav>
+    <ul>
+      <li>
+        <a class="homeLink" [routerLink]="['/home']">
+          <strong>ADMIN</strong> | Home
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/produtos']">
+          <strong>ADMIN</strong> | Produtos
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/cases']">
+          <strong>ADMIN</strong> | Cases
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>

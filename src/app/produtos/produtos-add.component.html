@@ -1,6 +1,6 @@
 <app-title [title]="title"></app-title>
 <div class="titlePage">
-  Incluir Produto
+    {{subTitle}} Produto
 </div>
 <form #form="ngForm" (submit)="onSubit(form)" novalidate>
   <div class="line">
@@ -9,8 +9,14 @@
   <div class="line">
     <input [(ngModel)]="model.Nome" name="nome" type="text" placeholder="Nome do Produto" />
   </div>
+  <div *ngIf="alterar" class="line">
+    <label>Imagem Atual</label>
+  </div>
+  <div *ngIf="alterar" class="line">
+    <img class="updateImg" *ngIf="alterar" [src]="model.Imagem" alt="Imagem" /><br *ngIf="alterar" />
+  </div>
   <div class="line">
-    <label>Imagem do Produto</label>
+    <label>{{subTitle}} Imagem do Produto</label>
   </div>
   <div class="line">
     <input name="url" type="file" accept="image/*" multiple (change)="changeListener($event)" />
@@ -18,6 +24,7 @@
   <div class="line">
     <div class="separatorBtn"></div>
     <button type="button" class="btnYell marginTop20 floatRight" (click)="voltarProductPage()">Voltar</button>
-    <button type="submit" class="btnYell marginTop20 floatRight">Inserir Produto</button>
+    <button *ngIf="!alterar" type="submit" class="btnYell marginTop20 floatRight">Incluir Produto</button>
+    <button *ngIf="alterar" type="submit" class="btnYell marginTop20 floatRight">Alterar Produto</button>
   </div>
 </form>

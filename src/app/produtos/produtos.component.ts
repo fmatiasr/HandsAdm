@@ -33,15 +33,18 @@ export class ProdutosComponent implements OnInit {
   constructor(private fb: FormBuilder, private _service: ProdutosService, private _router: Router) { }
   /**
    * ngInit que ocorre antes do carregamento do component
+   * Carregando a lista de produtos
    */
   ngOnInit() {
     this._service.getListProduct()
-          .subscribe(
-            produtos => {
-              this.produtosList = produtos;
-            },
-            error => this.errorMessage = <any>error
-          );
+    .subscribe(
+      produtosOne => {
+        this.produtosList = produtosOne;
+      },
+      error => {
+        this.errorMessage = <any>error;
+      }
+    );
   }
   /**
    * Abre a pagina de incluir um produto
@@ -55,8 +58,13 @@ export class ProdutosComponent implements OnInit {
    */
   deleteProduct(id) {
     this._service.deleteProduct(id)
-          .subscribe(
-            error => this.errorMessage = <any>error
-          );
+      .subscribe(res => {
+        this.produtosList = this.produtosList.filter(item => item.Id !== id);
+        console.log(res);
+      },
+      error => {
+        this.errorMessage = <any>error
+      }
+    );
   }
 }

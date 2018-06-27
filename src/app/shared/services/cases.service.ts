@@ -25,9 +25,8 @@ export class CasesService {
    * Pega o Case
    * @param id Id do case
    */
-  getCase(id): Observable<ICase> {
-    return this._http.get<ICase>(this.caseUrl + 'obter/' + `/${id}`)
-    .do(data => console.log('All: ' + JSON.stringify(data)))
+  getCase(id: number): Observable<ICase> {
+    return this._http.get<ICase>(this.caseUrl + 'obter/' + id)
     .catch(this.handleError);
   }
   /**
@@ -43,9 +42,7 @@ export class CasesService {
    */
   addCase(caseOne: ICase) {
     return this._http.post<ICase>(this.caseUrl + 'adicionar/', caseOne)
-    .subscribe((data) => {
-      console.log(data);
-    });
+    .catch(this.handleError);
   }
   /**
    * Atualiza o case
@@ -53,18 +50,14 @@ export class CasesService {
    */
   updateCase(caseOne: ICase): Observable<ICase> {
     return this._http.put<ICase>(this.caseUrl + 'alterar/', caseOne)
-    .do(data => console.log('All: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }
   /**
    * Deleta o case (delecao logica)
    * @param id Id do case
    */
-  deleteCase(id: number): Observable<ICase> {
+  deleteCase(id: number){
     return this._http.delete<ICase>(this.caseUrl + 'deletar/' + id)
-    .do(data => {
-      console.log('All: ' + JSON.stringify(data))
-    })
     .catch(this.handleError);
   }
   /**
@@ -72,7 +65,6 @@ export class CasesService {
    * @param err
    */
   private handleError(err: HttpErrorResponse) {
-    console.log();
     return Observable.throw(err.message);
   }
 }

@@ -48,7 +48,7 @@ html, body{
     border-radius: 10px;
 }
 
-#admCont{
+#AdmCont{
   position: fixed;
   width: 100%;
   height: 100%;
@@ -56,9 +56,57 @@ html, body{
   overflow-y: auto;
 }
 
-.width50{
-  width: 50%;
+#Loading{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(63, 66, 12, 0.9);
+    z-index: 3;
+    display: none;
+}
+
+#LoadingCont{
+    position: fixed;
+    top:50%;
+    left:50%;
+    width: 0px;
+    height: 0px;
+    z-index: 4;    
+}
+
+#LoadingCont img{
+    position: relative;
+    top: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;    
+}
+
+#AdmPre{
+  width: 650px;
   float: left;
+  padding: 140px;
+  box-sizing: border-box;
+}
+
+#AdmPre h1{
+    border-bottom: 1px solid #f6f9bd;
+  }
+
+.backYellow{
+    position: relative;
+    top: -28px;
+    left: -28px;
+    background-color: #c7d301;
+    padding: 140px;
+    color: #FFF;
+    box-sizing: border-box;
+    border-radius: 0 0 250px 0;
+    font-size: 40px;
+}
+
+.backYellow h1{
+    color: #FFF;
 }
 
 h1{
@@ -103,7 +151,6 @@ a{
     height: auto;
     float: left;
     padding-right: 30px;
-    cursor: pointer;
     outline: none;
 }
 
@@ -183,7 +230,7 @@ table{
 
 table tbody tr td{
     border: 1px solid #c7d301;
-    padding: 20px;
+    padding: 10px 20px;
     background-color: #f6f9bd;
     color: #8b9032;
     overflow: hidden;
@@ -194,6 +241,24 @@ table tbody tr td{
 table tbody tr td img{
   width: 100px;
   border: 1px solid #c7d301;
+}
+
+table tbody tr td a{
+    padding: 10px 20px;
+    border: 1px solid #d9de7b;
+    border-bottom: 4px solid #d9de7b;
+    margin-right: 10px;
+    background-color: #feffe2;
+    border-radius: 10px 5px 10px 5px;
+    color: #b0b549;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+table tbody tr td a:hover{
+    background-color: #b0b549;
+    border-top: 1px solid #b0b549;
+    color: #FFF;
 }
 
 table thead tr td{
@@ -217,4 +282,23 @@ table thead tr td{
   border: 1px solid #c7d301;
   font-size: 20px;
   font-weight: bold;
+}
+
+.updateImg{
+    width: 370px;
+    height: auto;
+    border: 1px solid #c7d301;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #9a9e4a;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #9a9e4a;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #9a9e4a;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #9a9e4a;
 }

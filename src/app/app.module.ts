@@ -28,7 +28,7 @@ import { ProdutosService } from './shared/services/produtos.service';
     ProdutosAddComponent,
     CasesAddComponent,
     HomeComponent,
-    TitleComponent
+    TitleComponent,
   ],
   imports: [
     BrowserModule,

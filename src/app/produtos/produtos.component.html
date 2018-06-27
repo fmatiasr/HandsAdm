@@ -6,16 +6,16 @@
   <table border="0">
     <thead>
       <tr>
-          <td align="center" width="15%">Imagem</td>
-          <td width="65%">Produto</td>
-          <td width="20%"></td>
+          <td align="center" width="5%">Imagem</td>
+          <td width="90%">Produto</td>
+          <td align="center" width="5%"></td>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let produto of produtosList">
         <td align="center"><img [src]="produto.Imagem" alt="" /></td>
         <td>{{produto.Nome}}</td>
-        <td align="center"><a title="Alterar o Produto" [routerLink]="['/produtos-add', produto.Id]">Alterar</a> | <a  title="Deletar o Produto" (click)="deleteProduct(produto.Id)">Excluir</a></td>
+        <td align="center"><a title="Alterar o Produto" [routerLink]="['/produtos-add', produto.Id]">Alterar</a><a title="Deletar o Produto" (click)="deleteProduct(produto.Id)">Excluir</a></td>
       </tr>
     </tbody>
   </table>

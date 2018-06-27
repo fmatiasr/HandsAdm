@@ -6,16 +6,16 @@
     <table>
       <thead>
         <tr>
-          <td align="center" width="15%">Imagem</td>
-          <td width="65%">Case</td>
-          <td width="20%"></td>
+          <td align="center" width="5%">Imagem</td>
+          <td width="90%">Case</td>
+          <td align="center" width="5%"></td>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let case of casesList">
           <td align="center"><img [src]="case.Imagem" alt="" /></td>
           <td>{{case.Nome}}</td>
-          <td align="center"><a title="Alterar o Case" [routerLink]="['/cases-add', case.Id]">Alterar</a> | <a title="Deletar o Case" (click)="deleteProduct(case.Id)">Excluir</a></td>
+          <td align="center"><a title="Alterar o Case" [routerLink]="['/cases-add', case.Id]">Alterar</a><a title="Deletar o Case" (click)="deleteProduct(case.Id)">Excluir</a></td>
         </tr>
       </tbody>
     </table>

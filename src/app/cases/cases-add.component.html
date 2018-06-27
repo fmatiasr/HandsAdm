@@ -1,6 +1,6 @@
 <app-title [title]="title"></app-title>
 <div class="titlePage">
-  Incluir Case
+    {{subTitle}} Case
 </div>
 <form #form="ngForm" (submit)="onSubit(form)" novalidate>
   <div class="line">
@@ -9,8 +9,14 @@
   <div class="line">
     <input [(ngModel)]="model.Nome" name="nome" type="text" placeholder="Nome do Case" />
   </div>
+  <div *ngIf="alterar" class="line">
+    <label>Imagem Atual</label>
+  </div>
+  <div *ngIf="alterar" class="line">
+    <img class="updateImg" *ngIf="alterar" [src]="model.Imagem" alt="Imagem" /><br *ngIf="alterar" />
+  </div>
   <div class="line">
-    <label>Imagem do Case</label>
+    <label>{{subTitle}} Imagem do Case</label>
   </div>
   <div class="line">
     <input name="url" type="file" accept="image/*" multiple (change)="changeListener($event)" />
@@ -18,6 +24,7 @@
   <div class="line">
     <div class="separatorBtn"></div>
     <button type="button" class="btnYell marginTop20 floatRight" (click)="voltarCasePage()">Voltar</button>
-    <button type="submit" class="btnYell marginTop20 floatRight">Inserir Case</button>
+    <button *ngIf="!alterar" type="submit" class="btnYell marginTop20 floatRight">Incluir Case</button>
+    <button *ngIf="alterar" type="submit" class="btnYell marginTop20 floatRight">Alterar Case</button>
   </div>
 </form>

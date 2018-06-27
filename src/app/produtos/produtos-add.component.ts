@@ -22,6 +22,14 @@ export class ProdutosAddComponent implements OnInit {
    */
   title = 'Produtos';
   /**
+   * Propriedade subtitle
+   */
+  subTitle: string;
+  /**
+   * Propriedade para verificar se e alterar ou inserir
+   */
+  alterar = false;
+  /**
    * Construtor da classe do component produtos add
    * @param _servico Servicos para produto
    * @param _router Router do angular
@@ -32,7 +40,18 @@ export class ProdutosAddComponent implements OnInit {
    * ngInit que ocorre antes do carregamento do component
    */
   ngOnInit() {
-    // let id = +this._activeRouter.snapshot.paramMap.get('id');
+    if(this._activeRouter.snapshot.paramMap.get('id') != null){
+      this._servico.getProduct(+this._activeRouter.snapshot.paramMap.get('id'))
+      .subscribe(res => {
+        this.model = res;
+        this.alterar = true;
+        this.subTitle = 'Alterar';
+      });
+    }
+    else{
+      this.alterar = false;
+      this.subTitle = 'Incluir';
+    }
   }
   /**
    * Voltar para pagina de lista de produtos
@@ -45,7 +64,20 @@ export class ProdutosAddComponent implements OnInit {
    * @param form
    */
   onSubit(form: NgForm) {
-    this._servico.addProduct(this.model);
+    if(this.alterar){
+      this._servico.updateProduct(this.model)
+      .subscribe(res => {
+        this._router.navigate(['/produtos']);
+        console.log(res);
+      });
+    }
+    else{
+      this._servico.addProduct(this.model)
+      .subscribe(res => {
+        this._router.navigate(['/produtos']);
+        console.log(res);
+      });
+    }
   }
   /**
    * Iniciando tratamento de imagem para base64

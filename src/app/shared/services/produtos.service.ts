@@ -27,9 +27,8 @@ export class ProdutosService {
    * Pega o produto.
    * @param id Id do produto
    */
-  getProduct(id): Observable<IProduto> {
-    return this._http.get<IProduto>(this.produtosUrl + 'obter/' + `/${id}`)
-    .do(data => console.log('All: ' + JSON.stringify(data)))
+  getProduct(id: number): Observable<IProduto> {
+    return this._http.get<IProduto>(this.produtosUrl + 'obter/' + id)
     .catch(this.handleError);
   }
   /**
@@ -45,10 +44,7 @@ export class ProdutosService {
    */
   addProduct(produtoOne: IProduto) {
     return this._http.post<IProduto>(this.produtosUrl + 'adicionar/', produtoOne)
-    .subscribe((data) => {
-      this._router.navigate(['/produtos']);
-      console.log(data);
-    });
+    .catch(this.handleError);
   }
   /**
    * Atualiza o produto
@@ -56,7 +52,6 @@ export class ProdutosService {
    */
   updateProduct(produtoOne: IProduto): Observable<IProduto> {
     return this._http.put<IProduto>(this.produtosUrl + 'alterar/', produtoOne)
-    .do(data => {console.log('All: ' + JSON.stringify(data))})
     .catch(this.handleError);
   }
   /**
@@ -65,9 +60,6 @@ export class ProdutosService {
    */
   deleteProduct(id: number) {
     return this._http.delete<IProduto>(this.produtosUrl + 'deletar/' + id)
-    .do(data => {
-      console.log('All: ' + JSON.stringify(data));
-    })
     .catch(this.handleError);
   }
   /**
@@ -75,8 +67,6 @@ export class ProdutosService {
    * @param err
    */
   private handleError(err: HttpErrorResponse) {
-    debugger;
-    console.log(err.message);
     return Observable.throw(err.message);
   }
 }

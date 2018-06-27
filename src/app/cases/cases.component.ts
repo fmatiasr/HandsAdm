@@ -35,12 +35,14 @@ export class CasesComponent implements OnInit {
    */
   ngOnInit() {
     this._service.getListCases()
-          .subscribe(
-            cases => {
-              this.casesList = cases;
-            },
-            error => this.errorMessage = <any>error
-          );
+    .subscribe(
+      casesOne => {
+        this.casesList = casesOne;
+      },
+      error => {
+        this.errorMessage = <any>error;
+      }
+    );
   }
   /**
    * Abre a pagina de incluir um case
@@ -54,8 +56,13 @@ export class CasesComponent implements OnInit {
    */
   deleteProduct(id) {
     this._service.deleteCase(id)
-          .subscribe(
-            error => this.errorMessage = <any>error
-          );
+      .subscribe(res => {
+        this.casesList = this.casesList.filter(item => item.Id !== id);
+        console.log(res);
+      },
+      error => {
+        this.errorMessage = <any>error
+      }
+    );
   }
 }

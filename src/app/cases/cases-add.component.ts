@@ -22,6 +22,14 @@ export class CasesAddComponent implements OnInit {
    */
   title = 'Cases';
   /**
+   * Propriedade subtitle
+   */
+  subTitle: string;
+  /**
+   * Propriedade para verificar se e alterar ou inserir
+   */
+  alterar = false;
+  /**
    * Construtor da classe do component cases add
    * @param _servico Servicos para case
    * @param _router Router do angular
@@ -32,8 +40,18 @@ export class CasesAddComponent implements OnInit {
    * ngInit que ocorre antes do carregamento do component
    */
   ngOnInit() {
-    // let id = +this._activeRouter.snapshot.paramMap.get('id');
-    // alert(id);
+    if(this._activeRouter.snapshot.paramMap.get('id') != null){
+      this._servico.getCase(+this._activeRouter.snapshot.paramMap.get('id'))
+      .subscribe(res => {
+        this.model = res;
+        this.alterar = true;
+        this.subTitle = 'Alterar';
+      });
+    }
+    else{
+      this.alterar = false;
+      this.subTitle = 'Incluir';
+    }
   }
   /**
    * Voltar para pagina de lista de cases
@@ -46,8 +64,20 @@ export class CasesAddComponent implements OnInit {
    * @param form
    */
   onSubit(form: NgForm) {
-    this._servico.addCase(this.model);
-    this.voltarCasePage();
+    if(this.alterar){
+      this._servico.updateCase(this.model)
+      .subscribe(res => {
+        this._router.navigate(['/cases']);
+        console.log(res);
+      });
+    }
+    else{
+      this._servico.addCase(this.model)
+      .subscribe(res => {
+        this._router.navigate(['/cases']);
+        console.log(res);
+      });
+    }
   }
   /**
    * Iniciando tratamento de imagem para base64
