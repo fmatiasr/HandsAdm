@@ -84,6 +84,7 @@ html, body{
 
 #AdmPre{
   width: 650px;
+  height: 450px;
   float: left;
   padding: 140px;
   box-sizing: border-box;

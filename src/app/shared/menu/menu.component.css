@@ -24,6 +24,7 @@
 
 #AdmMenu ul li a{
     width: 100%;
+    height: 72px;
     padding: 28px 23px;
     float: left;
     text-decoration: none;
