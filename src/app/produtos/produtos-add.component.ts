@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { ProdutosService } from '../shared/services/produtos.service';
-import { Produto } from '../shared/model/produtoModel.model';
+import { Produto } from '../shared/models/produto.model';
 /**
  * Classe do component produtos add
  */

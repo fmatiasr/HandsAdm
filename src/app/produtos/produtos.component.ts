@@ -1,9 +1,8 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ProdutosService } from '../shared/services/produtos.service';
-import { Produto } from '../shared/model/produtoModel.model';
+import { Produto } from '../shared/models/produto.model';
 /**
  * Classe do componente de Produtos
  */
@@ -30,7 +29,7 @@ export class ProdutosComponent implements OnInit {
    * @param fb injecao de dependencia do FormBuilder
    * @param _service injecao de dependencia de produtos services
    */
-  constructor(private fb: FormBuilder, private _service: ProdutosService, private _router: Router) { }
+  constructor(private _service: ProdutosService, private _router: Router) { }
   /**
    * ngInit que ocorre antes do carregamento do component
    * Carregando a lista de produtos

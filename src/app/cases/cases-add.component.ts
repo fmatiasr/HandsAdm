@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { CasesService } from '../shared/services/cases.service';
-import { Case } from '../shared/model/caseModel.model';
+import { Case } from '../shared/models/case.model';
 /**
  * Classe do component cases add
  */

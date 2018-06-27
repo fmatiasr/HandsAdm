@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
-import { ICase } from '../model/case.model';
+import { ICase } from '../interfaces/case.interface';
 /**
  * Classe dos servicos do Cases
  */

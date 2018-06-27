@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CasesService } from '../shared/services/cases.service';
-import { ICase } from '../shared/model/case.model';
+import { Case } from '../shared/models/case.model';
 /**
  * Classe do component cases
  */
@@ -13,9 +13,9 @@ import { ICase } from '../shared/model/case.model';
 })
 export class CasesComponent implements OnInit {
   /**
-   * Propriedade de lista de ICase
+   * Propriedade de lista de Case
    */
-  casesList: ICase[];
+  casesList: Case[];
   /**
    * Titulo da pagina
    */

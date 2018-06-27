@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
-import { IProduto } from '../model/produto.model';
+import { IProduto } from '../interfaces/produto.interface';
 /**
  * Classe dos servicos de Produtos
  */
@@ -22,7 +21,7 @@ export class ProdutosService {
    * Construtor da classe de servicos de produtos
    * @param _http
    */
-  constructor(private _http: HttpClient, private _router: Router) { }
+  constructor(private _http: HttpClient) { }
   /**
    * Pega o produto.
    * @param id Id do produto

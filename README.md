@@ -1,27 +1,31 @@
-# HandsAdm
+# Hands-Adm
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Aplicativo de teste da Hands para manutenção do site de teste da Hands. Aplicação que muda e configura todos produtos e cases exibidos no site teste.
 
-## Development server
+Esse projeto precisa do NodeJs para rodar e precisa também da aplicação API e banco de dados SQL com script gerado para poder acessar as informações.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Esse projeto foi gerado com o [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
-## Code scaffolding
+# Clonando a aplicação do github e rodando
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Na linha de comando do Windows/Mac/Linux entrar na pastaonde deseja clonar a aplicação e digitar:
 
-## Build
+>```
+>   git clone https://github.com/fmatiasr/hands-adm.git
+>```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Após clonar a aplicação aind na linha de comando digitar:
 
-## Running unit tests
+>```
+>   npm i
+>```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Após instalat os node module, ainda na linha de comando digitar:
 
-## Running end-to-end tests
+>```
+>   npm start
+>```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Rodando a aplicação
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Rode o `npm start` para compilar a aplicação. Navegue para `http://localhost:4200/`. O aplicativo será carregado automaticamente quando se alterar algo no código.
